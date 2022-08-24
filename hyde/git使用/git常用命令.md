@@ -43,6 +43,4 @@
 
 - **git push origin hyde**           **//提交分支hyde到远程仓库**
 
-- **git pull origin master**         **//抓取master分支(从gitee平台上下拉当前master分支最新的项目版本)**
-
-- 
+- **git pull origin master**         **//抓取master分支(从gitee平台上下拉当前master分支最新的项目版本 )**
