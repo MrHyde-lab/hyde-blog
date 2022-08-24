@@ -9,8 +9,6 @@
 
 - **git config --global user.email "email@hyde.com"**
 
-
-
 ### 创建仓库的常用命令
 
 - **mkdir Hyde**                      **//创建名为Hyde的文件夹**
@@ -21,8 +19,6 @@
 
 - **git clone <u>git@gitee.com:ychyde/hyde-blog.git</u>**        **//克隆远程仓库到本地**
 
-
-
 ### 上传文件的常用命令
 
 - **git add test.txt**             **//添加文件test.txt(个人理解是先将其放入一个类似缓存的区间，为提交做准备)**
@@ -30,8 +26,6 @@
 - **git commit -m "first commit"**      **//提交add所添加的文件，双引号内表示注释，此时还未正式上传到gitee**
 
 - **git push origin master**       **//上传master分支内所提交的文件，master为管理员权限**
-
-
 
 ### 多人协作
 
@@ -52,5 +46,3 @@
 - **git pull origin master**         **//抓取master分支(从gitee平台上下拉当前master分支最新的项目版本)**
 
 - 
-
-
