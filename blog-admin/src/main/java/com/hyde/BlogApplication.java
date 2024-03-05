@@ -1,4 +1,4 @@
-package com.hyde.blog;
+package com.hyde;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

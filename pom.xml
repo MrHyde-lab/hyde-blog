@@ -11,8 +11,12 @@
     <groupId>com.hyde</groupId>
     <artifactId>blog</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <name>blog</name>
     <description>blog</description>
+    <modules>
+        <module>blog-admin</module>
+    </modules>
     <properties>
         <java.version>17</java.version>
     </properties>
