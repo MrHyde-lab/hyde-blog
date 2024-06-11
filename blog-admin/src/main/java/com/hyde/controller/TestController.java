@@ -17,4 +17,10 @@ public class TestController {
     public String test(){
         return "test";
     }
+
+    @Operation(summary = "gitbuilderTest")
+    @GetMapping("/testGitBuilder")
+    public String testGitBuilder(){
+        return "Hello";
+    }
 }
