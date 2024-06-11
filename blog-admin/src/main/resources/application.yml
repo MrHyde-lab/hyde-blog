@@ -42,6 +42,7 @@ spring:
 swagger:
   # 是否开启swagger
   enabled: true
+  path: /swagger-ui.html
   info:
     # 标题
     title: '标题：hyde-blog接口文档'
