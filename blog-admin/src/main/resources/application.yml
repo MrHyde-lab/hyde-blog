@@ -38,5 +38,24 @@ spring:
     deserialization:
       # 允许对象忽略json中不存在的属性
       fail_on_unknown_properties: false
+# swagger配置
+swagger:
+  # 是否开启swagger
+  enabled: true
+  info:
+    # 标题
+    title: '标题：hyde-blog接口文档'
+    # 描述
+    description: '描述：用于管理个人博客的各个模块信息'
+    # 版本
+    version: '版本号: 1'
+    # 作者信息
+    contact:
+      name: hyde
+      email: 1719317647@qq.com
+
+
+
+
 
 
