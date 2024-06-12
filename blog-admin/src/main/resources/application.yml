@@ -38,6 +38,12 @@ spring:
     deserialization:
       # 允许对象忽略json中不存在的属性
       fail_on_unknown_properties: false
+
+#logging
+logging:
+  level:
+    root: info
+
 springdoc:
   api-docs:
     # 是否开启接口文档

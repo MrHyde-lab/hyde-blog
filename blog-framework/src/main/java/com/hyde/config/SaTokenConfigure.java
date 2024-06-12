@@ -19,8 +19,12 @@ public class SaTokenConfigure implements WebMvcConfigurer {
                             .notMatch("/sys/**")
                             // Swagger v3 的路径排除
                             .notMatch("/swagger-ui/**")
+                            .notMatch("/v3/api-docs/**")
+                            .notMatch("/swagger-resources/**")
+                            .notMatch("/webjars/**")
                             .check(r -> StpUtil.checkLogin());
                 }))
-                .addPathPatterns("/**");
+                .addPathPatterns("/**")
+                .excludePathPatterns("/sys");
     }
 }
