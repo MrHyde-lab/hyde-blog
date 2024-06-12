@@ -1,13 +1,17 @@
 package ${package.Controller};
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import javax.annotation.Resource;
+
 import java.util.List;
+
+import com.hyde.common.R;
+import com.hyde.common.ResultCodeEnum;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import org.springframework.web.bind.annotation.PathVariable;
 import ${package.Service}.${table.serviceName};
 import ${package.Entity}.${entity};
-
 #if(${restControllerStyle})
 import org.springframework.web.bind.annotation.RestController;
 #else
@@ -17,17 +21,20 @@ import org.springframework.stereotype.Controller;
 import ${superControllerClassPackage};
 #end
 
-/******************************
- * 用途说明: $!{table.comment}
- * 作者姓名: 更多干货 公众号 技术从南指到北
- * 创建时间: ${date}
- ******************************/
+/**
+ * <p>
+ * $!{table.comment}
+ * </p>
+ *
+ * @author ${author}
+ * @since ${date}
+ */
 #if(${restControllerStyle})
 @RestController
 #else
 @Controller
 #end
-@RequestMapping("#if(${package.ModuleName})/${package.ModuleName}#end/#if(${controllerMappingHyphenStyle})${controllerMappingHyphen}#else${table.entityPath}#end")
+@RequestMapping("#if(${package.ModuleName})${package.ModuleName}#end/#if(${controllerMappingHyphenStyle})${controllerMappingHyphen}#else${table.entityPath}#end")
 #if(${kotlin})
 class ${table.controllerName}#if(${superControllerClass}) : ${superControllerClass}()#end
 
@@ -37,47 +44,93 @@ class ${table.controllerName}#if(${superControllerClass}) : ${superControllerCla
     #else
     public class ${table.controllerName} {
     #end
-@Resource
+
+@Autowired
 private ${table.serviceName} ${table.entityPath}Service;
 
-
-@PostMapping
-public boolean save(@RequestBody ${entity} ${table.entityPath}){
-    return ${table.entityPath}Service.saveOrUpdate(${table.entityPath});
+// 新增或者更新
+/***********************************
+ * 用途说明:
+ * @return R
+ ***********************************/
+@PostMapping("add")
+public R add(@RequestBody ${entity} ${table.entityPath}) {
+    boolean result = ${table.entityPath}Service.save(${table.entityPath});
+    if (result) {
+        return R.ok().message(ResultCodeEnum.SUCCESS.getMessage());
+    } else {
+        return R.error().message(ResultCodeEnum.UPDATE_ERROR.getMessage());
+    }
 }
 
-
+/***********************************
+ * 用途说明:
+ * @param id
+ * 返回值说明:
+ * @return R
+ ***********************************/
 @DeleteMapping("/{id}")
-public Boolean delete(@PathVariable Integer id){
-    return ${table.entityPath}Service.removeById(id);
+public R delete(@PathVariable Integer id) {
+    boolean result = ${table.entityPath}Service.removeById(id);
+    if (result) {
+        return R.ok().message(ResultCodeEnum.SUCCESS.getMessage());
+    } else {
+        return R.error().message(ResultCodeEnum.UPDATE_ERROR.getMessage());
+    }
 }
 
-
+/***********************************
+ * 用途说明:
+ * @param ids
+ * 返回值说明:
+ * @return R
+ ***********************************/
 @PostMapping("/del/batch")
-public boolean deleteBatch(@RequestBody List<Integer> ids){
-    return ${table.entityPath}Service.removeByIds(ids);
+public R deleteBatch(@RequestBody List<Integer> ids) {
+    boolean result = ${table.entityPath}Service.removeByIds(ids);
+    if (result) {
+        return R.ok().message(ResultCodeEnum.SUCCESS.getMessage());
+    } else {
+        return R.error().message(ResultCodeEnum.UPDATE_ERROR.getMessage());
+    }
 }
 
-
+/***********************************
+ * 用途说明:
+ * @param:
+ * 返回值说明:
+ * @return R
+ ***********************************/
 @GetMapping
-public List<${entity}> findAll(){
-    return ${table.entityPath}Service.list();
+public R findAll() {
+    return R.ok().data("data", ${table.entityPath}Service.list());
 }
 
-
+/***********************************
+ * 用途说明:
+ * @param id
+ * 返回值说明:
+ * @return R
+ ***********************************/
 @GetMapping("/{id}")
-public ${entity} findOne(@PathVariable Integer id){
-    return ${table.entityPath}Service.getById(id);
+public R findOne(@PathVariable Integer id) {
+    return R.ok().data("data", ${table.entityPath}Service.getById(id));
 }
 
-
-@GetMapping("/page")
-public Page<${entity}> findPage(@RequestParam Integer pageNum,
-                                @RequestParam Integer pageSize){
-    QueryWrapper<${entity}> queryWrapper=new QueryWrapper<>();
+/***********************************
+ * 用途说明:
+ * @param pageNum pageSize ${table.entityPath}
+ * 返回值说明:
+ * @return R
+ ***********************************/
+@PostMapping("/page")
+public R findPage(@RequestParam Integer pageNum,
+                  @RequestParam Integer pageSize,
+                  @RequestBody ${entity} ${table.entityPath}) {
+    QueryWrapper<${entity}> queryWrapper = new QueryWrapper<>();
     queryWrapper.orderByDesc("id");
-    return ${table.entityPath}Service.page(new Page<>(pageNum,pageSize),queryWrapper);
+    return R.ok().data("data", ${table.entityPath}Service.page(new Page<>(pageNum, pageSize), queryWrapper));
 }
 }
-#end
 
+#end
