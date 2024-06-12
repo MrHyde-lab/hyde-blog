@@ -17,6 +17,7 @@
     <modules>
         <module>blog-admin</module>
         <module>blog-framework</module>
+        <module>blog-framework</module>
     </modules>
     <properties>
         <java.version>17</java.version>
