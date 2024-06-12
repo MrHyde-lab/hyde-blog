@@ -4,6 +4,18 @@ server:
 
 # Spring配置
 spring:
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password:  # 访问Redis所需密码
+      database: 0  # 使用的数据库编号
+      lettuce: #Lettuce客户端配置
+        pool: # 连接池配置
+          max-active: 8  # 最大活跃连接数
+          max-wait: -1  # 最大等待时间（-1表示无限等待）
+          max-idle: 8  # 最大空闲连接数
+          min-idle: 0
   application:
     name: blog
   # 资源信息

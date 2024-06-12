@@ -24,7 +24,6 @@ public class SaTokenConfigure implements WebMvcConfigurer {
                             .notMatch("/webjars/**")
                             .check(r -> StpUtil.checkLogin());
                 }))
-                .addPathPatterns("/**")
-                .excludePathPatterns("/sys");
+                .addPathPatterns("/**");
     }
 }
