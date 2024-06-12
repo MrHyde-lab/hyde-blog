@@ -18,10 +18,17 @@
     </properties>
     <dependencies>
 
-        <!--        framework模块-->
+        <!-- framework模块-->
         <dependency>
             <groupId>com.hyde</groupId>
             <artifactId>blog-framework</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <!-- 代码生成-->
+        <dependency>
+            <groupId>com.hyde</groupId>
+            <artifactId>blog-generator</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
