@@ -73,6 +73,7 @@ logging:
       max-file-size: 10MB
   pattern:
     dateformat: yyyy-MM-dd HH:mm:ss
+  config: classpath:logback.xml
 
 springdoc:
   api-docs:
