@@ -30,7 +30,6 @@ public class UserTestServiceImpl extends ServiceImpl<UserTestMapper, UserTest> i
             page.setCurrent(current);
             page.setSize(size);
         }
-        page.isSearchCount();
         Page<UserTest> pageUserTest = page(page);
         return pageUserTest;
     }
