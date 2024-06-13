@@ -49,10 +49,14 @@ class ${table.controllerName}#if(${superControllerClass}) : ${superControllerCla
 private ${table.serviceName} ${table.entityPath}Service;
 
 // 新增或者更新
-/***********************************
- * 用途说明:
- * @return R
- ***********************************/
+/**
+ * <p>
+ *
+ * </p>
+ *
+ * @author ${author}
+ * @since ${date}
+ */
 @PostMapping("add")
 public R add(@RequestBody ${entity} ${table.entityPath}) {
     boolean result = ${table.entityPath}Service.save(${table.entityPath});
@@ -63,12 +67,12 @@ public R add(@RequestBody ${entity} ${table.entityPath}) {
     }
 }
 
-/***********************************
- * 用途说明:
+/**
  * @param id
- * 返回值说明:
- * @return R
- ***********************************/
+ *
+ * @author ${author}
+ * @since ${date}
+ */
 @DeleteMapping("/{id}")
 public R delete(@PathVariable Integer id) {
     boolean result = ${table.entityPath}Service.removeById(id);
@@ -79,12 +83,12 @@ public R delete(@PathVariable Integer id) {
     }
 }
 
-/***********************************
- * 用途说明:
+/**
  * @param ids
- * 返回值说明:
- * @return R
- ***********************************/
+ *
+ * @author ${author}
+ * @since ${date}
+ */
 @PostMapping("/del/batch")
 public R deleteBatch(@RequestBody List<Integer> ids) {
     boolean result = ${table.entityPath}Service.removeByIds(ids);
@@ -95,23 +99,22 @@ public R deleteBatch(@RequestBody List<Integer> ids) {
     }
 }
 
-/***********************************
- * 用途说明:
- * @param:
- * 返回值说明:
- * @return R
- ***********************************/
+/**
+ *
+ * @author ${author}
+ * @since ${date}
+ */
 @GetMapping
 public R findAll() {
     return R.ok().data("data", ${table.entityPath}Service.list());
 }
 
-/***********************************
- * 用途说明:
+/**
  * @param id
- * 返回值说明:
- * @return R
- ***********************************/
+ *
+ * @author ${author}
+ * @since ${date}
+ */
 @GetMapping("/{id}")
 public R findOne(@PathVariable Integer id) {
     return R.ok().data("data", ${table.entityPath}Service.getById(id));
@@ -123,6 +126,14 @@ public R findOne(@PathVariable Integer id) {
  * 返回值说明:
  * @return R
  ***********************************/
+/**
+ * @param pageNum
+ * @param pageSize
+ * ${table.entityPath}
+ *
+ * @author ${author}
+ * @since ${date}
+ */
 @PostMapping("/page")
 public R findPage(@RequestParam Integer pageNum,
                   @RequestParam Integer pageSize,

@@ -3,14 +3,12 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.generator.FastAutoGenerator;
 import com.baomidou.mybatisplus.generator.config.OutputFile;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
-import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 import com.baomidou.mybatisplus.generator.fill.Column;
 import com.baomidou.mybatisplus.generator.fill.Property;
 import com.hyde.BlogApplication;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -39,7 +37,7 @@ public class TestController {
         FastAutoGenerator.create(MYSQL_URL, MYSQL_UAERNAME, MYSQL_PASSWORD)
                 .globalConfig(builder -> {
                     builder.author(AUTHOR)        // 设置作者
-//                            .enableSwagger()        // 开启 swagger 模式 默认值:false
+//                            .enableSwagger()      // 开启 swagger 模式 默认值:false
                             .disableOpenDir()       // 禁止打开输出目录 默认值:true
                             .commentDate("yyyy-MM-dd") // 注释日期
                             .dateType(DateType.ONLY_DATE)   //定义生成的实体类中日期类型 DateType.ONLY_DATE 默认值: DateType.TIME_PACK
