@@ -35,7 +35,7 @@ open class ${table.serviceImplName} : ${superServiceImplClass}<${table.mapperNam
         page.setCurrent(current);
         page.setSize(size);
         }
-        page.isSearchCount();
+        page.searchCount();
         Page<${entity}> page${entity} = page(page);
         return page${entity};
         }

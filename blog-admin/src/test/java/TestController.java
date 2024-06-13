@@ -19,7 +19,7 @@ import java.util.Map;
 public class TestController {
 
     //    数据库url
-    public static final String MYSQL_URL = "jdbc:mysql://localhost:3306/blog?serverTimezone=GMT%2B8";
+    public static final String MYSQL_URL = "jdbc:mysql://localhost:3306/blog?useSSL=false&serverTimezone=UTC&useUnicode=true&characterEncoding=utf8";
     //    数据库登录名
     public static final String MYSQL_UAERNAME = "root";
     //    数据库密码
