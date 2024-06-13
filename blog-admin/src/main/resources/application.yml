@@ -64,6 +64,15 @@ spring:
 logging:
   level:
     root: info
+    com.hyde.controller: debug
+  file:
+    name: sys.log
+  logback:
+    rolling policy:
+      file-name-pattern: ${LOG_FILE}.%d{yyyy-MM-dd}.%i.zip
+      max-file-size: 10MB
+  pattern:
+    dateformat: yyyy-MM-dd HH:mm:ss
 
 springdoc:
   api-docs:
