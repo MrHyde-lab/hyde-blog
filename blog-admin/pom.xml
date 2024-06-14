@@ -37,6 +37,12 @@
             <artifactId>velocity</artifactId>
             <version>1.7</version> <!-- 或者使用最新版本 -->
         </dependency>
+        <dependency>
+            <groupId>com.hyde</groupId>
+            <artifactId>blog-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
 </project>
