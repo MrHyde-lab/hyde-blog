@@ -1,1 +1,40 @@
 
+#spring 配置
+spring:
+  datasource:
+    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+    url: jdbc:p6spy:mysql://112.74.72.52:3306/blog?useSSL=false&serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
+    username: root
+    password: root123456
+    hikari:
+      maximum-pool-size: 15
+      minimum-idle: 5
+      idle-timeout: 30000
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password:  # 访问Redis所需密码
+      database: 0  # 使用的数据库编号
+      lettuce: #Lettuce客户端配置
+        pool: # 连接池配置
+          max-active: 8  # 最大活跃连接数
+          max-wait: -1  # 最大等待时间（-1表示无限等待）
+          max-idle: 8  # 最大空闲连接数
+          min-idle: 0
+
+#logging
+logging:
+  level:
+    root: info
+    com.hyde.controller: debug
+  file:
+    name: sys.log
+  logback:
+    rolling policy:
+      file-name-pattern: ${LOG_FILE}.%d{yyyy-MM-dd}.%i.zip
+      max-file-size: 10MB
+  pattern:
+    dateformat: yyyy-MM-dd HH:mm:ss
+  config: classpath:logback.xml
