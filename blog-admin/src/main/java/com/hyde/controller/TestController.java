@@ -21,7 +21,7 @@ public class TestController {
     public String test(){
         return "test";
     }
-    @Operation(summary = "gitbuilderTest")
+    @Operation(summary = "gitBuilderTest")
     @GetMapping("/testGitBuilder")
     public void testGitBuilder(){
         RedisUtil.set("hyde","dimash");
