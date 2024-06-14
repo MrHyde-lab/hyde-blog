@@ -30,6 +30,6 @@ public class TestController {
     @Operation(summary = "gitbuilderTest")
     @GetMapping("/testGitBuilder")
     public void testGitBuilder(){
-        redisTemplate.opsForValue().set("hyde","dimash");
+        redisTemplate.opsForValue().set("hyde","hyde");
     }
 }
